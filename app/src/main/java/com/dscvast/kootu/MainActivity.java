@@ -9,12 +9,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dscvast.kootu.model.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.util.Objects.requireNonNull;
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
 
+    private List<Data> imgList;
     private final int[] resID = { R.raw.idli, R.raw.dosa, R.raw.upma, R.raw.puttu, R.raw.choru, R.raw.chapathi };
+    private final int[] imgID = { R.drawable.idli, R.drawable.dosa, R.drawable.upma, R.drawable.puttu, R.drawable.rice, R.drawable.cpathi};
+    private String[] engID = {"Idli", "Dosa", "Upma", "Puttu", "Rice", "Chapathi"};
+    private String[] malID = {"ഇഡലി", "ദോശ", "ഉപ്പുമാവ്", "പുട്ട്", "ചോറ്", "ചപ്പാത്തി"};
     private MediaPlayer mp;
 
     @Override
@@ -24,6 +33,7 @@ public class MainActivity extends AppCompatActivity
 
         requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         mp = new MediaPlayer();
+        imgList = new ArrayList<>();
 
         TextView idli = findViewById(R.id.idli);
         TextView dosa = findViewById(R.id.dosa);
